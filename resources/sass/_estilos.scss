@@ -1,0 +1,189 @@
+#sidebar {
+    width: 18%;
+    height: 100vh;
+    background: #e6e6e6;
+    box-shadow: 60px -16px black;
+    border-width: 2px;
+}
+
+.barraestado {
+    background-color: #F2F2F2;
+    height: 50px;
+    box-shadow: 3px 2px 30px -12px rgba(1, 1, 1, 0.73);
+}
+
+a.bar,
+button.bar {
+    background-color: #e6e6e6;
+    border-radius: 0px;
+    border-width: 0px;
+    vertical-align: middle;
+    padding: 12px;
+    color: #202020;
+    font-size: 15px;
+}
+
+a.bar:hover,
+button.bar:hover {
+    background-color: #b3b3b3;
+    border-width: 0px;
+    color: black;
+}
+
+a.bar:active{
+    background-color: #929292 !important;
+}
+
+a.dropdown-item {
+    width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.btn-agregar {
+    background-color: #0D6EFD;
+    height: 35px;
+    border-width: 1px;
+    border-color: #0066ff;
+    height: 35px;
+    font-size: 14px;
+    //font-weight: bold;
+    border-radius: 6px;
+    color: #ebebeb;
+    margin-right: 1%;
+}
+
+.btn-agregar:hover {
+    background-color: #3b89ff;
+    height: 35px;
+    border-width: 0px;
+    height: 35px;
+    font-size: 14px;
+    //font-weight: bold;
+    border-radius: 8px;
+    color: #ebebeb;
+}
+
+#aside,
+#main {
+    width: 50%;
+    align-items: center;
+}
+
+#aside {
+    min-height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-agregar:hover {
+    background-color: rgba(141, 210, 231, 0.2);
+    border-color: rgba(179, 225, 239);
+}
+
+img.icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+img.icon-nav{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.tarjeta {
+    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    text-align: center;
+    padding: 30px;
+    margin-top: 15px;
+    margin-bottom: 3px;
+    font-weight: bold;
+    color: white;
+    width: 180px;
+    font-size: 13px;
+}
+
+.tarjeta-login {
+    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px 15px;
+    margin: 3% 10% 0% 10%;
+    color: white;
+    width: 80%;
+    min-height: 60px;
+    font-size: 15px;
+    background-color: #0fa8c7;
+}
+
+
+h1 {
+    font-weight: bold;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.subtitulo {
+    margin-top: 30px;
+    font-family: "Segoe UI";
+    margin-bottom: 30px;
+}
+
+container-fluid {
+    background-color: white;
+}
+
+.cardr {
+    margin-top: 25%;
+    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cardshow {
+    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2);
+   // margin: 1% 1%;
+   padding: 1%;
+   margin: 1% 5%;
+}
+
+.cardinfo {
+    margin: 0% 2%;
+    text-align: center;
+    border-radius: 20px;
+    padding: 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    align-items: center;
+    height: 40%;
+}
+
+.cardcreate {
+    margin: 0% 25%;
+    height: 400px;
+    box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-icon{
+    border-width: 1px;
+    border-color: transparent;
+}
+
+.btn-icon:hover{
+    border-width: 1.5px;
+    border-color: #868686;
+}
+
+.img-icon{
+    width: 20px;
+    height: 20px;
+}
+

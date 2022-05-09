@@ -1,0 +1,80 @@
+@extends('layouts.app')
+
+@section('template_title')
+    Tarea
+@endsection
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="float-right mt-2">
+                <a href="{{ route('listas.index') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
+                    Atrás
+                </a>
+            </div>
+            <h1 class="text-center mt-3 mb-1">Tareas de la lista <br>
+                <h5 class="text-center mb-3"><strong>{{ $lista->nombre }}</strong></h5>
+            </h1>
+            <div style='text-align:right'>
+                <a href="{{ route('tareas.create', ['id' => $id]) }}" class="btn mb-1 btn-agregar">
+                    {{ __('Agregar') }}
+                    <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" />
+                </a>
+            </div>
+            <div class="col-sm-12">
+                <div class="card">
+
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="thead">
+                                    <tr>
+                                        <th>No</th>
+
+                                        <th>Lista</th>
+                                        <th>Nombre</th>
+
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($tareas as $tarea)
+                                        <tr>
+                                            <td>{{ ++$i }}</td>
+
+                                            <td>{{ $tarea->lista->nombre }}</td>
+                                            <td>{{ $tarea->nombre }}</td>
+
+                                            <td>
+                                                <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
+                                                    <a class="btn btn-sm m-2 btn-icon"
+                                                        href="{{ route('tareas.show', $tarea->id) }}"
+                                                        style="background-color: #30C2CC"><img class="img-icon"
+                                                            src=" {!! asset('img/ver.png') !!}" /></a>
+                                                    <a class="btn btn-sm m-2 btn-icon"
+                                                        href="{{ route('tareas.edit', $tarea->id) }}"
+                                                        style="background-color: #FF5ADB"><img class="img-icon"
+                                                            src=" {!! asset('img/editar.png') !!}" /></a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038"><img class="img-icon" src=" {!! asset('img/eliminar.png') !!}"/></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {!! $tareas->links() !!}
+            </div>
+        </div>
+    </div>
+@endsection
