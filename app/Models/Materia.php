@@ -15,12 +15,13 @@ class Materia extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'creditos', 'horas', 'horas_dedicar_total', 'horas_dedicar_semana', 'horas_pendientes', 'horas_total_clase', 'horas_total', 'horas_pendientes_total', 'horas_ejecutadas', 'user_id'];
+    protected $fillable = ['nombre', 'creditos', 'horas', 'color','horas_dedicar_total', 'horas_dedicar_semana', 'horas_pendientes', 'horas_total_clase', 'horas_total', 'horas_pendientes_total', 'horas_ejecutadas', 'user_id'];
 
     static $rules = [
-        'nombre' => 'required',
-        'creditos' => 'required',
-        'horas' => 'required',
+        'nombre' => ['required', 'string', 'max:255'],
+        'creditos' => ['required', 'integer', 'max:10'],
+        'horas' => ['required', 'integer', 'max:12'],
+        'color' => ['required', 'string', 'max:7'],
     ];
 
     protected $perPage = 20;

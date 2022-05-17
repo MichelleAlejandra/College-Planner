@@ -108,7 +108,7 @@ class ListaController extends Controller
         $lista->update($request->all());
 
         return redirect()->route('listas.index')
-            ->with('success', 'Lista updated successfully');
+            ->with('success', 'Lista actualizada exitosamente');
     }
 
     /**
@@ -121,6 +121,6 @@ class ListaController extends Controller
         $lista = Lista::find($id)->delete();
 
         return redirect()->route('listas.index')
-            ->with('success', 'Lista eliminado satisfactoriamente');
+            ->with('success', 'Lista eliminada exitosamente');
     }
 }

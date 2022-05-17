@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('creditos');
+            $table->string('color');
             $table->integer('horas');
             $table->integer('horas_dedicar_total');
             $table->integer('horas_total');

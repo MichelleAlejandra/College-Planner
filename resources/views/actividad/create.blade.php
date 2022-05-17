@@ -15,7 +15,8 @@
 
                 <div class="card mt-5 cardcreate">
                     <h1 class="text-center mt-5">
-                        Registra una materia
+                        Registra tu actividad
+                        <h5 class="text-center">En: <strong> {{ $materia->nombre }} </strong></h5>
                     </h1>
 
                     <div class="card-body mt-3">

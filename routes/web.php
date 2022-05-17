@@ -41,3 +41,5 @@ Route::post('/actividad/store', 'ActividadController@store')->name('actividades.
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+

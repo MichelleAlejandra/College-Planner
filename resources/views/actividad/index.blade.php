@@ -48,7 +48,7 @@
                                             <td style="text-align:center">
                                                 <form action="{{ route('actividad.destroy', $actividad->id) }}"
                                                     method="POST">
-                                                    <a class="btn btn-sm m-2 btn-icon" href="{{ route('actividad.show', $actividad->id) }}" style="background-color: #30C2CC"><img class="img-icon" src=" {!! asset('img/ver.png') !!}"/></a>
+                                                    <!--<a class="btn btn-sm m-2 btn-icon" href="{{ route('actividad.show', $actividad->id) }}" style="background-color: #30C2CC"><img class="img-icon" src=" {!! asset('img/ver.png') !!}"/></a>-->
                                                     <a class="btn btn-sm m-2 btn-icon" href="{{ route('actividad.edit', $actividad->id) }}" style="background-color: #FF5ADB"><img class="img-icon" src=" {!! asset('img/editar.png') !!}"/></a>
 
                                                     @csrf

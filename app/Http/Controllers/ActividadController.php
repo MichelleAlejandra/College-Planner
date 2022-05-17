@@ -46,7 +46,10 @@ class ActividadController extends Controller
         $listas = Lista::where('user_id', $user->id)->paginate();
         $actividad = new Actividad();
         $actividad->materia_id = $id;
-        return view('actividad.create', compact('actividad', 'listas'));
+
+        $materia = Materia::find($id);
+
+        return view('actividad.create', compact('actividad', 'listas', 'materia'));
     }
 
     /**
@@ -57,7 +60,7 @@ class ActividadController extends Controller
      */
     public function store(Request $request)
     {
-
+        dd($request);
         request()->validate(Actividad::$rules);
 
         $actividad = Actividad::create($request->all());
@@ -69,7 +72,7 @@ class ActividadController extends Controller
         $materia->save();
 
         return redirect()->route('actividades.index', $actividad->materia_id)
-            ->with('success', 'Actividad creado satisfactoriamente');
+            ->with('success', 'Actividad creada satisfactoriamente');
     }
 
     /**
@@ -128,7 +131,7 @@ class ActividadController extends Controller
         $materia->save();
 
         return redirect()->route('actividades.index', $actividad->materia_id)
-            ->with('success', 'Actividad actualizada con exito');
+            ->with('success', 'Actividad actualizada con éxito');
     }
 
     /**
@@ -145,6 +148,6 @@ class ActividadController extends Controller
         $actividad->delete();
 
         return redirect()->route('actividades.index', $materia_id)
-            ->with('success', 'Actividad eliminado satisfactoriamente');
+            ->with('success', 'Actividad eliminada satisfactoriamente');
     }
 }

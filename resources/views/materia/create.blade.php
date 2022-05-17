@@ -9,15 +9,15 @@ Create Lista
     <div class="row">
         <div class="col-md-12">
             <div class="float-right">
-                <a class="btn btn-primary" style="margin-top: 2%;" href="{{ route('materias.index') }}"> Atrás</a>
+                <a class="btn btn-primary mt-3" href="{{ route('materias.index') }}"> Atrás</a>
             </div>
             @includeif('partials.errors')
 
             <div class="card cardcreate">
-                <h1 class="text-center mt-4">
+                <h1 class="text-center mt-1">
                     Crea una materia
                 </h1>
-                <div class="card-body mt-3">
+                <div class="card-body">
                     <form method="POST" action="{{ route('materias.store') }}" role="form" enctype="multipart/form-data">
                         @csrf
                         @include('materia.form')

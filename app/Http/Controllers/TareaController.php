@@ -68,7 +68,7 @@ class TareaController extends Controller
         $id = $tarea->lista_id;
 
         return redirect()->route('tareas.index', compact('id', 'listas'))
-            ->with('success', 'Tarea creado satisfactoriamente');
+            ->with('success', 'Tarea creada satisfactoriamente');
     }
 
     /**
@@ -125,7 +125,7 @@ class TareaController extends Controller
         $id = $tarea->lista_id;
 
         return redirect()->route('tareas.index', compact('listas','id'))
-            ->with('success', 'Tarea updated successfully');
+            ->with('success', 'Tarea actualizada satisfactoriamente');
     }
 
     /**
@@ -144,9 +144,7 @@ class TareaController extends Controller
         $user = Auth::user();
         $listas = Lista::where('user_id', $user->id)->paginate();
 
-
-
         return redirect()->route('tareas.index', compact('listas','id'))
-            ->with('success', 'Tarea eliminado satisfactoriamente');
+            ->with('success', 'Tarea eliminada satisfactoriamente');
     }
 }

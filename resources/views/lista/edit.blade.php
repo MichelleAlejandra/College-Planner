@@ -11,20 +11,16 @@
         </div>
         <div class="mt-3">
             <div class="col-md-12">
-
                 @includeif('partials.errors')
-
                 <div class="card cardcreate">
-                    <h1 class="text-center mt-5">
+                    <h1 class="text-center">
                         Actualiza la lista
                     </h1>
                     <div class="card-body">
                         <form method="POST" action="{{ route('listas.update', $lista->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
-
                             @include('lista.form')
-
                         </form>
                     </div>
                 </div>

@@ -11290,13 +11290,16 @@ textarea.form-control-lg {
   width: 18%;
   height: 100vh;
   background: #e6e6e6;
-  box-shadow: 60px -16px black;
+  box-shadow: 3px 2px 0px -12px rgba(1, 1, 1, 0.73);
   border-width: 2px;
+  z-index: 2;
 }
 
 .barraestado {
   background-color: #F2F2F2;
   height: 50px;
+  width: 100%;
+  z-index: 3;
   box-shadow: 3px 2px 30px -12px rgba(1, 1, 1, 0.73);
 }
 
@@ -11387,12 +11390,11 @@ img.icon-nav {
   border-radius: 15px;
   text-align: center;
   padding: 30px;
-  margin-top: 15px;
-  margin-bottom: 3px;
   font-weight: bold;
   color: white;
   width: 180px;
   font-size: 13px;
+  display: inline-block;
 }
 
 .tarjeta-login {
@@ -11420,7 +11422,7 @@ h1, .h1 {
 .subtitulo {
   margin-top: 30px;
   font-family: "Segoe UI";
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 container-fluid {
@@ -11452,7 +11454,7 @@ container-fluid {
 
 .cardcreate {
   margin: 0% 25%;
-  height: 400px;
+  padding: 3%;
   box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -11469,4 +11471,40 @@ container-fluid {
 .img-icon {
   width: 20px;
   height: 20px;
+}
+
+th,
+td {
+  text-align: center;
+  vertical-align: center;
+}
+
+.table-horario {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.th-h,
+.td-h {
+  text-align: center;
+  vertical-align: center;
+  border: 1px solid rgb(146, 146, 146);
+  padding: 2px;
+  border-collapse: collapse;
+}
+
+.tr {
+  padding: 0;
+}
+
+.a-horario {
+  background-color: blue;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

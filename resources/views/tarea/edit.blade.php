@@ -7,7 +7,7 @@
 @section('content')
     <section class="content container-fluid">
         <div class="float-right">
-            <a class="btn btn-primary" href="{{ route('tareas.index',  $id) }}"> Atrás</a>
+            <a class="btn btn-primary mt-3" href="{{ route('tareas.index',  $id) }}"> Atrás</a>
         </div>
         <div class="mt-5">
             <div class="col-md-12">

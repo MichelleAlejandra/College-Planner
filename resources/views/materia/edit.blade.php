@@ -7,19 +7,19 @@ Actualizar materia
 @section('content')
 <section class="content container-fluid">
     <div class="float-right">
-        <a class="btn btn-primary mt-4" href="{{ route('materias.index') }}"> Atrás</a>
+        <a class="btn btn-primary mt-3" href="{{ route('materias.index') }}"> Atrás</a>
     </div>
     <div class="mt-2">
         <div class="col-md-12">
             @includeif('partials.errors')
             <div class="card cardcreate">
-                <h1 class="text-center mt-4">
+                <h1 class="text-center mt-1">
                     Edita tu materia
                 </h1>
                 <div class="card-body">
                     <form method="POST" action="{{ route('materias.update', $materia->id) }}" role="form" enctype="multipart/form-data">
-                        {{ method_field('PATCH') }}
                         @csrf
+                        @method('PUT')
                         @include('materia.form')
                     </form>
                 </div>

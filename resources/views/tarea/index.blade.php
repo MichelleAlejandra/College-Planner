@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="float-right mt-2">
-                <a href="{{ route('listas.index') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
+                <a href="{{ route('listas.index') }}" class="btn btn-primary mt-3" data-placement="left">
                     Atrás
                 </a>
             </div>
@@ -35,28 +35,25 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th style="text-align:center">No</th>
 
-                                        <th>Lista</th>
-                                        <th>Nombre</th>
+                                        <th style="text-align:center">Nombre</th>
 
-                                        <th></th>
+                                        <th style="text-align:center"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($tareas as $tarea)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td style="text-align:center">{{ ++$i }}</td>
+                                            <td style="text-align:center">{{ $tarea->nombre }}</td>
 
-                                            <td>{{ $tarea->lista->nombre }}</td>
-                                            <td>{{ $tarea->nombre }}</td>
-
-                                            <td>
+                                            <td style="text-align:center">
                                                 <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
-                                                    <a class="btn btn-sm m-2 btn-icon"
+                                                   <!-- <a class="btn btn-sm m-2 btn-icon"
                                                         href="{{ route('tareas.show', $tarea->id) }}"
                                                         style="background-color: #30C2CC"><img class="img-icon"
-                                                            src=" {!! asset('img/ver.png') !!}" /></a>
+                                                            src=" {!! asset('img/ver.png') !!}" /></a> -->
                                                     <a class="btn btn-sm m-2 btn-icon"
                                                         href="{{ route('tareas.edit', $tarea->id) }}"
                                                         style="background-color: #FF5ADB"><img class="img-icon"
