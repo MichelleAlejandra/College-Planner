@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('tareas', function (Blueprint $table) {
             //$table->engine = "InnoDB";
             $table->bigIncrements('id');
-            $table->bigInteger('lista_id');
+            $table->bigInteger('lista_id')->references('id')->on('listas')->comment('La lista a la que pertenece');
             $table->string('nombre');
             $table->integer('user_id');
             $table->timestamps();

@@ -2,8 +2,9 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use App\Models\Materia;
+use Illuminate\Database\Eloquent\Collection;
 
 class MateriaTest extends TestCase
 {
@@ -12,8 +13,9 @@ class MateriaTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_a_materia_belongs_to_actividad()
     {
-        $this->assertTrue(true);
+        $materia = new Materia();
+        $this->assertInstanceOf(Collection::class, $materia->actividades);
     }
 }

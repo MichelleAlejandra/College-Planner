@@ -28,6 +28,6 @@ class Materia extends Model
 
     public function actividades()
     {
-        return $this->belongsTo(Actividad::class, 'materia_id');
+        return $this->HasMany(Actividad::class, 'materia_id');
     }
 }

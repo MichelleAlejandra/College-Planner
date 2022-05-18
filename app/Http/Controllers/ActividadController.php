@@ -60,7 +60,6 @@ class ActividadController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         request()->validate(Actividad::$rules);
 
         $actividad = Actividad::create($request->all());
