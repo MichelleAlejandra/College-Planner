@@ -28,7 +28,7 @@
         <h1 class="titulo" style="margin-top:5%; font-size:34px">
             College Planner
         </h1>
-        <img src="{!! asset('img/login.png') !!}" style="width:90%; margin-left: 5%">
+        <img src="{!! asset('img/login.png') !!}" style="width:90%; margin-left: 5%" alt="Imagen principal">
         <div class="tarjeta-login">
             Somos el planeador universitario que mas se ajusta a tus necesidades, ingresa
             y descubre lo que tenemos para ti.

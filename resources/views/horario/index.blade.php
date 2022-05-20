@@ -12,7 +12,7 @@
             <div style='text-align:right'>
                 <a href="{{ route('horario.create') }}" class="btn mb-1 btn-agregar" id="">
                     {{ __('Agregar') }}
-                    <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" />
+                    <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" alt="Agregar un horario" />
                 </a>
             </div>
             <div class="col-sm-12">

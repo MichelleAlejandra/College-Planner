@@ -11,7 +11,7 @@
             <div style='text-align:right'>
                 <a href="{{ route('materias.create') }}" class="btn mb-1 btn-agregar" id="">
                     {{ __('Agregar') }}
-                    <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" />
+                    <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" alt="Agregar materia"/>
                 </a>
             </div>
             <div class="col-sm-12">
@@ -49,20 +49,20 @@
                                                     <a class="btn btn-sm m-2 btn-icon"
                                                         href="{{ route('materias.show', $materia->id) }}"
                                                         style="background-color: #30C2CC"><img class="img-icon"
-                                                            src=" {!! asset('img/ver.png') !!}" /></a>
+                                                            src=" {!! asset('img/ver.png') !!}" alt="Ver materia" /></a>
                                                     <a class="btn btn-sm m-2 btn-icon"
                                                         href="{{ route('materias.edit', $materia->id) }}"
                                                         style="background-color: #FF5ADB"><img class="img-icon"
-                                                            src=" {!! asset('img/editar.png') !!}" /></a>
+                                                            src=" {!! asset('img/editar.png') !!}" alt="Editar materia"/></a>
                                                     <a class="btn btn-sm m-2 btn-icon "
                                                         href="{{ route('actividades.index', $materia->id) }}"
                                                         style="background-color: #9650ff"><img class="img-icon"
-                                                            src=" {!! asset('img/actividad.png') !!}" /></a>
+                                                            src=" {!! asset('img/actividad.png') !!}" alt="Agregar una actividad a la materia"/></a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-icon btn-sm  m-2"
                                                         style="background-color: #ff1038"><img class="img-icon"
-                                                            src=" {!! asset('img/eliminar.png') !!}" /></button>
+                                                            src=" {!! asset('img/eliminar.png') !!}" alt="Eliminar materia"/></button>
 
                                                 </form>
                                             </td>

@@ -81,13 +81,13 @@
                             <div class="list-group">
                                 <a href="{{ route('index.index') }}" style="border-radius:0px"
                                     class="list-group-item list-group-item-action bar {{ request()->is('/') ? 'active' : '' }} {{ request()->is('index') ? 'active' : '' }}">
-                                    <img src="{!! asset('img/reloj.png') !!}" class="icon">
+                                    <img src="{!! asset('img/reloj.png') !!}" class="icon" alt="Consolidad">
                                     Consolidado
                                 </a>
 
                                 <a href="{{ route('materias.index') }}"
                                     class="list-group-item list-group-item-action bar {{ request()->segment(1) == 'materias' ? 'active' : '' }} {{ request()->segment(1) == 'actividad' ? 'active' : '' }}">
-                                    <img src="{!! asset('img/libro.png') !!}" class="icon">
+                                    <img src="{!! asset('img/libro.png') !!}" class="icon" alt="Materias">
                                     Materias
                                 </a>
 
@@ -95,13 +95,13 @@
 
                                 <a href="{{ route('listas.index') }}"
                                     class="list-group-item list-group-item-action bar {{ request()->segment(1) == 'listas' ? 'active' : '' }} {{ request()->segment(1) == 'tarea' ? 'active' : '' }}">
-                                    <img src=" {!! asset('img/lista.png') !!}" class="icon">
+                                    <img src=" {!! asset('img/lista.png') !!}" class="icon" alt="Listas">
                                     Listas
                                 </a>
 
                                 <a href="{{ route('horario.index') }}" data-toggle="collapse" aria-expanded="false"
                                     class="list-group-item list-group-item-action bar {{ request()->segment(1) == 'horario' ? 'active' : '' }}">
-                                    <img src=" {!! asset('img/calendario.png') !!}" class="icon">
+                                    <img src=" {!! asset('img/calendario.png') !!}" class="icon" alt="Horario">
                                     Horario
                                 </a>
 

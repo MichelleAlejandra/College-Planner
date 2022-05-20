@@ -11,7 +11,7 @@
         <div style='text-align:right'>
             <a href="{{ route('listas.create') }}" class="btn mb-1 btn-agregar" id="">
                 {{ __('Agregar') }}
-                <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" />
+                <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" alt="Agregar lista"/>
             </a>
         </div>
         <div class="card">
@@ -40,15 +40,15 @@
                                             <a class="btn btn-sm m-2 btn-icon"
                                                 href="{{ route('tareas.index', $lista->id) }}"
                                                 style="background-color: #30C2CC"><img class="img-icon"
-                                                    src=" {!! asset('img/ver.png') !!}" /></a>
+                                                    src=" {!! asset('img/ver.png') !!}" alt="Ver contenido de la lista"/></a>
 
                                             <a class="btn btn-sm m-2 btn-icon"
                                                 href="{{ route('listas.edit', $lista->id) }}"
                                                 style="background-color: #FF5ADB"><img class="img-icon"
-                                                    src=" {!! asset('img/editar.png') !!}" /></a>
+                                                    src=" {!! asset('img/editar.png') !!}" alt="Editar lista"/></a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038"><img class="img-icon" src=" {!! asset('img/eliminar.png') !!}"/></button>
+                                            <button type="submit" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038"><img class="img-icon" src=" {!! asset('img/eliminar.png') !!}" alt="Eliminar lista"/></button>
                                         </form>
                                     </td>
                                 </tr>
