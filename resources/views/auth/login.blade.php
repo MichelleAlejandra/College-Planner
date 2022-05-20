@@ -26,7 +26,7 @@
     style="background:#ffffff; margin: 0;padding: 0;display: flex;min-height: 100vh;justify-content: center;align-items: center;">
     <div id="aside" style="min-height: 100vh; width:50%">
         <h1 class="titulo" style="margin-top:5%; font-size:34px">
-            College Planner
+            College Planner - prueba
         </h1>
         <img src="{!! asset('img/login.png') !!}" style="width:90%; margin-left: 5%" alt="Imagen principal">
         <div class="tarjeta-login">
