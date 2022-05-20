@@ -24,15 +24,15 @@ class HorarioController extends Controller
 
         $id = $user->id;
 
-        $sqlLunes = 'SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Lunes\' ';
+        $sqlLunes = 'SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Lunes\' ORDER BY hora_inicial';
         $horariosLunes = DB::select($sqlLunes);
 
-        $horariosMartes = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Martes\' ');
-        $horariosMiercoles = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Miercoles\' ');
-        $horariosJueves = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Jueves\' ');
-        $horariosViernes = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Viernes\' ');
-        $horariosSabado = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Sabado\' ');
-        $horariosDomingo = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Domingo\' ');
+        $horariosMartes = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Martes\' ORDER BY hora_inicial');
+        $horariosMiercoles = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Miercoles\' ORDER BY hora_inicial');
+        $horariosJueves = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Jueves\' ORDER BY hora_inicial');
+        $horariosViernes = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Viernes\' ORDER BY hora_inicial');
+        $horariosSabado = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Sabado\' ORDER BY hora_inicial');
+        $horariosDomingo = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Domingo\' ORDER BY hora_inicial');
 
         return view('horario.index',
         compact('materias', 'listas', 'horariosLunes', 'horariosMartes', 'horariosMiercoles',

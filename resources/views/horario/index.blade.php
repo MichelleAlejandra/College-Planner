@@ -15,6 +15,7 @@
                     <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" alt="Agregar un horario" />
                 </a>
             </div>
+
             <div class="col-sm-12">
                 <div class="card">
                     @if ($message = Session::get('success'))
@@ -69,7 +70,8 @@
                                                         @if ($horariosLunes[$j]->hora_inicial == $i)
                                                             <td class="td-h"
                                                                 rowspan="{{ $horariosLunes[$j]->duracion }}">
-                                                                <a class="btn a-horario" style="background-color: {{ $horariosLunes[$j]->materia_color}}"
+                                                                <a class="btn a-horario"
+                                                                    style="background-color: {{ $horariosLunes[$j]->materia_color }}"
                                                                     href="{{ route('horario.edit', $horariosLunes[$j]->id) }}">
                                                                     {{ $horariosLunes[$j]->materia_nombre }}
                                                                 </a>
@@ -94,7 +96,8 @@
                                                     @if ($horariosMartes[$j]->hora_inicial == $i)
                                                         <td class="td-h"
                                                             rowspan="{{ $horariosMartes[$j]->duracion }}">
-                                                            <a class="btn a-horario" style="background-color: {{ $horariosMartes[$j]->materia_color}}"
+                                                            <a class="btn a-horario"
+                                                                style="background-color: {{ $horariosMartes[$j]->materia_color }}"
                                                                 href="{{ route('horario.edit', $horariosMartes[$j]->id) }}">
                                                                 {{ $horariosMartes[$j]->materia_nombre }}
                                                             </a>
@@ -119,7 +122,8 @@
                                                 @if ($horariosMiercoles[$j]->hora_inicial == $i)
                                                     <td class="td-h"
                                                         rowspan="{{ $horariosMiercoles[$j]->duracion }}">
-                                                        <a class="btn a-horario" style="background-color: {{ $horariosMiercoles[$j]->materia_color}}"
+                                                        <a class="btn a-horario"
+                                                            style="background-color: {{ $horariosMiercoles[$j]->materia_color }}"
                                                             href="{{ route('horario.edit', $horariosMiercoles[$j]->id) }}">
                                                             {{ $horariosMiercoles[$j]->materia_nombre }}
                                                         </a>
@@ -144,7 +148,8 @@
                                             @if ($horariosJueves[$j]->hora_inicial == $i)
                                                 <td class="td-h"
                                                     rowspan="{{ $horariosJueves[$j]->duracion }}">
-                                                    <a class="btn a-horario" style="background-color: {{ $horariosJueves[$j]->materia_color}}"
+                                                    <a class="btn a-horario"
+                                                        style="background-color: {{ $horariosJueves[$j]->materia_color }}"
                                                         href="{{ route('horario.edit', $horariosJueves[$j]->id) }}">
                                                         {{ $horariosJueves[$j]->materia_nombre }}
                                                     </a>
@@ -170,7 +175,8 @@
                                         @if ($horariosViernes[$j]->hora_inicial == $i)
                                             <td class="td-h"
                                                 rowspan="{{ $horariosViernes[$j]->duracion }}">
-                                                <a class="btn a-horario" style="background-color: {{ $horariosViernes[$j]->materia_color}}"
+                                                <a class="btn a-horario"
+                                                    style="background-color: {{ $horariosViernes[$j]->materia_color }}"
                                                     href="{{ route('horario.edit', $horariosViernes[$j]->id) }}">
                                                     {{ $horariosViernes[$j]->materia_nombre }}
                                                 </a>
@@ -195,7 +201,8 @@
                                     @if ($horariosSabado[$j]->hora_inicial == $i)
                                         <td class="td-h"
                                             rowspan="{{ $horariosSabado[$j]->duracion }}">
-                                            <a class="btn a-horario" style="background-color: {{ $horariosSabado[$j]->materia_color}}"
+                                            <a class="btn a-horario"
+                                                style="background-color: {{ $horariosSabado[$j]->materia_color }}"
                                                 href="{{ route('horario.edit', $horariosSabado[$j]->id) }}">
                                                 {{ $horariosSabado[$j]->materia_nombre }}
                                             </a>
@@ -221,7 +228,8 @@
                                 @if ($horariosDomingo[$j]->hora_inicial == $i)
                                     <td class="td-h"
                                         rowspan="{{ $horariosDomingo[$j]->duracion }}">
-                                        <a class="btn a-horario" style="background-color: {{ $horariosDomingo[$j]->materia_color}}"
+                                        <a class="btn a-horario"
+                                            style="background-color: {{ $horariosDomingo[$j]->materia_color }}"
                                             href="{{ route('horario.edit', $horariosDomingo[$j]->id) }}">
                                             {{ $horariosDomingo[$j]->materia_nombre }}
                                         </a>

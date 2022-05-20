@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('materia_nombre')->references('nombre')->on('materias')->comment('Nombre de la materia a la que pertenece');;
             $table->string('materia_color')->references('color')->on('materias')->comment('Color de la materia a ls que pertenece');;
             $table->string('dia_semana');
-            $table->string('hora_inicial');
-            $table->string('hora_final');
+            $table->integer('hora_inicial');
+            $table->integer('hora_final');
             $table->integer('duracion');
             $table->integer('user_id');
             $table->timestamps();
