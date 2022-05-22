@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('creditos');
             $table->string('color');
             $table->integer('horas');
+            $table->integer('horas_registradas');
             $table->integer('horas_dedicar_total');
             $table->integer('horas_total');
             $table->integer('horas_dedicar_semana');

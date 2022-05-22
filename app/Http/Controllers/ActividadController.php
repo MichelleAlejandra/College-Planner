@@ -141,12 +141,15 @@ class ActividadController extends Controller
      */
     public function destroy($id)
     {
-
         $actividad = Actividad::find($id);
-        $materia_id = $actividad->materia_id;
+        $materia = Materia::find($actividad->materia_id);
+
+        $materia->horas_ejecutadas = $materia->horas_ejecutadas - $actividad->horas;
+        $materia->save();
+
         $actividad->delete();
 
-        return redirect()->route('actividades.index', $materia_id)
+        return redirect()->route('actividades.index', $materia->id)
             ->with('success', 'Actividad eliminada satisfactoriamente');
     }
 }

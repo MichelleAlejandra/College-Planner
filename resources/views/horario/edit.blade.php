@@ -22,6 +22,15 @@
                         @method('PUT')
                         @include('horario.form')
                     </form>
+                    <form action="{{ route('horario.destroy', $horario->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="row mt-4" style="text-align: right">
+                            <button type="submit" class="btn btn-danger  btn-sm"
+                                style="background-color: #ff1038; margin-left:83%; width:15.2%; color:#FFFFFF">
+                                Eliminar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <p style="color:transparent">hola</p>

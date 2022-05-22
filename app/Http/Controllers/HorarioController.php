@@ -21,12 +21,9 @@ class HorarioController extends Controller
         $user = Auth::user();
         $materias = Materia::where('user_id', $user->id)->paginate();
         $listas = Lista::where('user_id', $user->id)->paginate();
-
         $id = $user->id;
 
-        $sqlLunes = 'SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Lunes\' ORDER BY hora_inicial';
-        $horariosLunes = DB::select($sqlLunes);
-
+        $horariosLunes = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Lunes\' ORDER BY hora_inicial');
         $horariosMartes = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Martes\' ORDER BY hora_inicial');
         $horariosMiercoles = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Miercoles\' ORDER BY hora_inicial');
         $horariosJueves = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Jueves\' ORDER BY hora_inicial');
@@ -34,9 +31,20 @@ class HorarioController extends Controller
         $horariosSabado = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Sabado\' ORDER BY hora_inicial');
         $horariosDomingo = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Domingo\' ORDER BY hora_inicial');
 
-        return view('horario.index',
-        compact('materias', 'listas', 'horariosLunes', 'horariosMartes', 'horariosMiercoles',
-         'horariosJueves', 'horariosViernes', 'horariosSabado', 'horariosDomingo'));
+        return view(
+            'horario.index',
+            compact(
+                'materias',
+                'listas',
+                'horariosLunes',
+                'horariosMartes',
+                'horariosMiercoles',
+                'horariosJueves',
+                'horariosViernes',
+                'horariosSabado',
+                'horariosDomingo'
+            )
+        );
     }
 
     /**
@@ -57,15 +65,6 @@ class HorarioController extends Controller
         return view('horario.create', compact('materias', 'listas', 'horario'));
     }
 
-    public function getMateria($id)
-    {
-        $user = Auth::user();
-
-        $materias = DB::select('SELECT * FROM materias WHERE user_id = ' . $user->id . ' AND id = ' . $id );
-
-        return $materias;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -77,15 +76,41 @@ class HorarioController extends Controller
         request()->validate(Horario::$rules);
         $user = Auth::user();
         $materia = Materia::find($request['materia_id']);
+        $auxHoras = $materia->horas_registradas + $request['duracion'];
 
+        if ($auxHoras > $materia->horas) {
+            return redirect()->route('horario.create')
+                ->with('error', 'La materia "' . $materia->nombre . '" solo tiene ' . $materia->horas .
+                    ' horas semanales y ya se encuentran registradas ' . $materia->horas_registradas . ' horas');
+        }
+
+        $request['hora_final'] = $request['hora_inicial'] + $request['duracion'];
         $request['materia_nombre'] = $materia->nombre;
         $request['materia_color'] = $materia->color;
         $request['user_id'] = $user->id;
-        $request['hora_final'] = $request['hora_inicial'] + $request['duracion'];
+
+        $horasSeleccionadas = array();
+
+        for ($i = $request['hora_inicial']; $i <= $request['hora_final']; $i++) {
+            $horasSeleccionadas[] = $i;
+        }
+
+        $horarios = DB::select('SELECT * FROM horarios WHERE user_id = ' . $user->id . ' AND dia_semana = \'' . $request['dia_semana'] . '\'');
+
+        foreach ($horarios as $h) {
+            for ($i = $h->hora_inicial + 1; $i < $h->hora_final; $i++) {
+                if (in_array($i, $horasSeleccionadas)) {
+                    return redirect()->route('horario.create')
+                        ->with('error', 'La materia "' . $h->materia_nombre . '" se encuentra dentro del horario seleccionado.');
+                }
+            }
+        }
+        $materia->horas_registradas = $auxHoras;
+        $materia->save();
         $horario = Horario::create($request->all());
 
         return redirect()->route('horario.index')
-        ->with('success', 'Horario agregado satisfactoriamente');
+            ->with('success', 'Horario agregado satisfactoriamente');
     }
 
     /**
@@ -112,7 +137,7 @@ class HorarioController extends Controller
 
         $listas = Lista::where('user_id', $user->id)->paginate();
 
-        return view('horario.edit', compact('horario','listas', 'materias'));
+        return view('horario.edit', compact('horario', 'listas', 'materias'));
     }
 
     /**
@@ -124,13 +149,45 @@ class HorarioController extends Controller
      */
     public function update(Request $request, Horario $horario)
     {
+        $user = Auth::user();
+        $materia = Materia::find($request['materia_id']);
         request()->validate(Horario::$rules);
-        $request['hora_final'] = $request['hora_inicial'] + $request['duracion'];
 
+        $auxHoras = $materia->horas_registradas  - $horario->duracion + $request['duracion'];
+
+        if ($auxHoras > $materia->horas) {
+            return redirect()->route('horario.edit', $horario)
+                ->with('error', 'La materia "' . $materia->nombre . '" solo tiene ' . $materia->horas .
+                    ' horas semanales y ya se encuentran registradas ' . ($materia->horas_registradas  - $horario->duracion) . ' horas');
+        }
+
+        $request['hora_final'] = $request['hora_inicial'] + $request['duracion'];
+        $request['materia_nombre'] = $materia->nombre;
+        $request['materia_color'] = $materia->color;
+
+        $horasSeleccionadas = array();
+
+        for ($i = $request['hora_inicial']; $i <= $request['hora_final']; $i++) {
+            $horasSeleccionadas[] = $i;
+        }
+
+        $horarios = DB::select('SELECT * FROM horarios WHERE user_id = ' . $user->id . ' AND dia_semana = \'' . $request['dia_semana'] . '\' AND NOT id = ' . $horario->id);
+
+        foreach ($horarios as $h) {
+            //              9               9 < 11
+            for ($i = $h->hora_inicial + 1; $i < $h->hora_final; $i++) {
+                if (in_array($i, $horasSeleccionadas)) {
+                    return redirect()->route('horario.edit', $horario)
+                        ->with('error', 'La materia "' . $h->materia_nombre . '" se encuentra dentro del horario seleccionado.');
+                }
+            }
+        }
+        $materia->horas_registradas = $auxHoras;
+        $materia->save();
         $horario->update($request->all());
 
         return redirect()->route('horario.index')
-            ->with('success', 'Horario actualizado exitosamente');
+            ->with('success', 'Horario actualizado correctamente');
     }
 
     /**
@@ -141,9 +198,15 @@ class HorarioController extends Controller
      */
     public function destroy($id)
     {
-        $horario = Horario::find($id)->delete();
+        $horario = Horario::find($id);
+        $materia = Materia::find($horario->materia_id);
+
+        $materia->horas_registradas = $materia->horas_registradas - $horario->duracion;
+
+        $materia->save();
+        $horario->delete();
 
         return redirect()->route('horario.index')
-            ->with('success', 'Horario eliminado exitosamente');
+            ->with('success', 'Horario eliminado correctamente');
     }
 }
