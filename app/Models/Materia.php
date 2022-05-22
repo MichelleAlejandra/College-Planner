@@ -31,4 +31,9 @@ class Materia extends Model
     {
         return $this->HasMany(Actividad::class, 'materia_id');
     }
+
+    public function horarios()
+    {
+        return $this->HasMany(Horario::class, 'materia_id');
+    }
 }

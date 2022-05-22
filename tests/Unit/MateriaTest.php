@@ -13,9 +13,16 @@ class MateriaTest extends TestCase
      *
      * @return void
      */
-    public function test_a_materia_belongs_to_actividad()
+    public function test_a_materia_has_many_actividades()
     {
         $materia = new Materia();
         $this->assertInstanceOf(Collection::class, $materia->actividades);
     }
+
+    public function test_a_materia_has_many_horarios()
+    {
+        $materia = new Materia();
+        $this->assertInstanceOf(Collection::class, $materia->horarios);
+    }
+
 }

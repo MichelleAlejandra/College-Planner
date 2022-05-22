@@ -38,6 +38,7 @@ class MateriaController extends Controller
         $user = Auth::user();
         $listas = Lista::where('user_id', $user->id)->paginate();
         $materia = new Materia();
+
         return view('materia.create', compact('materia','listas'));
     }
 
@@ -70,7 +71,7 @@ class MateriaController extends Controller
         //Horas que ya le dedico
         $request['horas_ejecutadas'] = 0;
 
-        $materia = Materia::create($request->all());
+        Materia::create($request->all());
 
         return redirect()->route('materias.index')
             ->with('success', 'Materia creada satisfactoriamente');
@@ -157,7 +158,8 @@ class MateriaController extends Controller
      */
     public function destroy($id)
     {
-        $materia = Materia::find($id)->delete();
+        dd("Entró a borrar");
+        Materia::find($id)->delete();
 
         return redirect()->route('materias.index')
             ->with('success', 'Materia eliminada satisfactoriamente');
