@@ -25,7 +25,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table-horario" cellpadding="-10" cellspacing="0">
+                            <table class="table-horario" cellpadding="-10" cellspacing="0" description="Horario">
                                 <thead class="thead">
                                     <tr>
                                         <th style="text-align:center; width:9%">Hora</th>

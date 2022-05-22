@@ -42,7 +42,7 @@ class TareaSeeder extends Seeder
 
         DB::table('tareas')->insert([
             'nombre'  => 'Llamar a Karla',
-            'lista_id' => '1',
+            'lista_id' => '2',
             'user_id' => 1
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');

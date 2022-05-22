@@ -23,7 +23,7 @@
                     @endif
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table class="table table-striped table-hover" description="Materias">
                                 <thead class="thead">
                                     <tr>
                                         <th style="text-align:center">Nombre</th>

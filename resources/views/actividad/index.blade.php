@@ -30,7 +30,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table class="table table-striped table-hover" description="Actividades">
                                 <thead class="thead">
                                     <tr>
                                         <th style="text-align:center">No</th>
