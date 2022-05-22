@@ -37,7 +37,7 @@
 
     <div id="main" style="min-height: 100vh;width:50%">
         <div class="card"
-            style="background : #fbfbfb;width:80%; margin-top:8% !important;margin:10%; box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2); border-radius:15px">
+            style="background : #fbfbfb;width:80%; margin:10%; margin-top:8%; box-shadow: 1px 10px 10px rgba(0, 0, 0, 0.2); border-radius:15px">
             <div class="card-body" style="text-align: center;">
                 <div class="div" style="text-align: center; margin-top: 8%; margin-bottom:5%;">
                     <h1 class="subtitulo mb-2" style="font-size: 30px;"> ¡Registrate! </h1>

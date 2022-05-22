@@ -32,7 +32,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table class="table table-striped table-hover" description="Tareas">
                                 <thead class="thead">
                                     <tr>
                                         <th style="text-align:center">No</th>
@@ -56,11 +56,12 @@
                                                             src=" {!! asset('img/ver.png') !!}" /></a> -->
                                                     <a class="btn btn-sm m-2 btn-icon"
                                                         href="{{ route('tareas.edit', $tarea->id) }}"
-                                                        style="background-color: #FF5ADB"><img class="img-icon"
+                                                        style="background-color: #FF5ADB"><img class="img-icon" alt="Editar tarea"
                                                             src=" {!! asset('img/editar.png') !!}" /></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038"><img class="img-icon" src=" {!! asset('img/eliminar.png') !!}"/></button>
+                                                    <button type="submit" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038">
+                                                        <img class="img-icon" alt="Eliminar tarea" src=" {!! asset('img/eliminar.png') !!}"/></button>
                                                 </form>
                                             </td>
                                         </tr>

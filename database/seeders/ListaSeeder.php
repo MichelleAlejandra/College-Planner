@@ -15,11 +15,11 @@ class ListaSeeder extends Seeder
      */
     public function run()
     {
-        /*
+
         DB::table('listas')->insert([
             'nombre'  => 'Universidad',
             'user_id' => 1
-        ]);*/
+        ]);
 
         DB::table('listas')->insert([
             'nombre'  => 'Trabajo',
