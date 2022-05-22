@@ -1,5 +1,12 @@
 <div class="box box-info padding-1">
     <div class="box-body">
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger p-2">
+                <strong>¡Error!, no se pudo agregar la materia al horario: </strong>
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+
         <div class="form-group">
 
             {{ Form::label('materia') }}
@@ -56,7 +63,8 @@
 
             <label class="mt-3">Duración de la clase</label>
             <input type="number" name="duracion" id="duracion" placeholder="Horas de duración de la clase"
-                class="form-control @error('error') is-invalid' @enderror)" value="{{ $horario->duracion }}" required>
+                class="form-control @error('error') is-invalid' @enderror)" value="{{ $horario->duracion }}"
+                required>
             @error('error')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -68,14 +76,9 @@
         <button type="submit" class="btn btn-info"
             style="align-self: center; width: 55%; font-weight:bold; border-color:#8b8b8b;">Guardar</button>
     </div>
-    @if(request()->segment(2) == 'edit')
-    <form action="{{ route('horario.destroy', $horario->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <div class="row mt-4" style="text-align: right">
-            <button type="submit" class="btn btn-danger  btn-sm" style="background-color: #ff1038; margin-left:75%; width:25%; color:#FFFFFF">
-                Eliminar horario</button>
-        </div>
-    </form>
-    @endif
+    <div class="div">
+        @if (request()->segment(3) == 'edit')
+
+        @endif
+    </div>
 </div>

@@ -15,7 +15,6 @@
                     <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" alt="Agregar un horario" />
                 </a>
             </div>
-
             <div class="col-sm-12">
                 <div class="card">
                     @if ($message = Session::get('success'))
@@ -23,6 +22,7 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table-horario" cellpadding="-10" cellspacing="0">
