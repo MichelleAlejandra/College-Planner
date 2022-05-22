@@ -32,7 +32,7 @@ class HorarioController extends Controller
         $horariosDomingo = DB::select('SELECT * FROM horarios WHERE user_id = ' . $id . ' AND dia_semana =  \'Domingo\' ORDER BY hora_inicial');
 
         return view(
-            'horario.index',
+            Config("constantes.horario_index"),
             compact(
                 'materias',
                 'listas',
@@ -109,7 +109,7 @@ class HorarioController extends Controller
         $materia->save();
         $horario = Horario::create($request->all());
 
-        return redirect()->route('horario.index')
+        return redirect()->route(Config("constantes.horario_index"))
             ->with('success', 'Horario agregado satisfactoriamente');
     }
 
@@ -186,7 +186,7 @@ class HorarioController extends Controller
         $materia->save();
         $horario->update($request->all());
 
-        return redirect()->route('horario.index')
+        return redirect()->route(Config("constantes.horario_index"))
             ->with('success', 'Horario actualizado correctamente');
     }
 
@@ -206,7 +206,7 @@ class HorarioController extends Controller
         $materia->save();
         $horario->delete();
 
-        return redirect()->route('horario.index')
+        return redirect()->route(Config("constantes.horario_index"))
             ->with('success', 'Horario eliminado correctamente');
     }
 }

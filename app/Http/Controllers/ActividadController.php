@@ -6,7 +6,7 @@ use App\Models\Actividad;
 use App\Models\Materia;
 use App\Models\Lista;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Config;
 
 use Illuminate\Http\Request;
 
@@ -19,15 +19,10 @@ class ActividadController extends Controller
      */
     public function index($id)
     {
-        //
         $user = Auth::user();
-
         $actividades = Actividad::where('materia_id', $id)->paginate();
-
         $materia = Materia::find($id);
-
         $listas = Lista::where('user_id', $user->id)->paginate();
-
 
         return view('actividad.index', compact('actividades', 'id', 'materia', 'listas'))
             ->with('i', (request()->input('page', 1) - 1) * $actividades->perPage());
@@ -40,7 +35,6 @@ class ActividadController extends Controller
      */
     public function create($id)
     {
-        //
         $user = Auth::user();
 
         $listas = Lista::where('user_id', $user->id)->paginate();
@@ -70,7 +64,7 @@ class ActividadController extends Controller
         $materia->horas_ejecutadas = $materia->horas_ejecutadas + $actividad->horas;
         $materia->save();
 
-        return redirect()->route('actividades.index', $actividad->materia_id)
+        return redirect()->route(Config("constantes.actividad_index"), $actividad->materia_id)
             ->with('success', 'Actividad creada satisfactoriamente');
     }
 
@@ -82,7 +76,6 @@ class ActividadController extends Controller
      */
     public function show($id)
     {
-        //
         $actividad = Actividad::find($id);
 
         $user = Auth::user();
@@ -118,7 +111,6 @@ class ActividadController extends Controller
      */
     public function update(Request $request, Actividad $actividad)
     {
-        //
         request()->validate(Actividad::$rules);
 
         $actividad->update($request->all());
@@ -129,7 +121,7 @@ class ActividadController extends Controller
         $materia->horas_ejecutadas = $materia->horas_ejecutadas + $actividad->horas;
         $materia->save();
 
-        return redirect()->route('actividades.index', $actividad->materia_id)
+        return redirect()->route(Config("constantes.actividad_index"), $actividad->materia_id)
             ->with('success', 'Actividad actualizada con éxito');
     }
 
@@ -149,7 +141,7 @@ class ActividadController extends Controller
 
         $actividad->delete();
 
-        return redirect()->route('actividades.index', $materia->id)
+        return redirect()->route(Config("constantes.actividad_index"), $materia->id)
             ->with('success', 'Actividad eliminada satisfactoriamente');
     }
 }
