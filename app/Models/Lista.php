@@ -31,9 +31,9 @@ class Lista extends Model
      */
     protected $fillable = ['nombre', 'user_id'];
 
-    public function tarea()
+    public function tareas()
     {
-        return $this->hasMany(Tarea::class, 'id');
+        return $this->hasMany(Tarea::class, 'lista_id');
     }
 
 }

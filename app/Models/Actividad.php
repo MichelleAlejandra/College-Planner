@@ -27,8 +27,8 @@ class Actividad extends Model
         'materia_id',
     ];
 
-    public function materias()
+    public function materia()
     {
-        return $this->hasMany(Materia::class, 'materia_id');
+        return $this->belongsTo(Materia::class, 'materia_id');
     }
 }

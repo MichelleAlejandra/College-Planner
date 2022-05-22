@@ -35,7 +35,6 @@ class Tarea extends Model
 
     public function lista()
     {
-        //return $this->hasOne('App\Models\lista', 'id', 'lista_id');
         return $this->belongsTo(Lista::class, 'lista_id');
     }
 

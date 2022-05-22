@@ -28,7 +28,6 @@ class Horario extends Model
 
     public function materia()
     {
-        //return $this->hasOne('App\Models\lista', 'id', 'lista_id');
         return $this->belongsTo(Materia::class, 'materia_id');
     }
 }

@@ -17,7 +17,7 @@ Actualizar materia
                     Edita tu materia
                 </h1>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('materias.update', $materia->id) }}" role="form" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('materias.update', $materia) }}" role="form" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         @include('materia.form')
