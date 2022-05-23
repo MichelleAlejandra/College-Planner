@@ -28,8 +28,7 @@
     </div>
 </div>
 @section('javascript')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/js/bootstrap-colorpicker.min.js"
-        integrity="sha384-EhfNLT6NEylLH3+7zgUOZrC8Qy8BzFCEYJPTeJ2kzre0URgJACC0gcIgxYGStEC6" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/js/bootstrap-colorpicker.min.js">
     </script>
     <script>
         $('.colorpicker').colorpicker();

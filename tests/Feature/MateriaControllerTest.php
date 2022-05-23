@@ -36,28 +36,16 @@ class MateriaControllerTest extends TestCase
     {
         $user = User::create([
             'name' => 'Usuario prueba',
-            'email' => 'prueba2@gmail.com',
+            'email' => 'prueba@gmail.com',
             'password' => 'password',
         ]);
 
         $this->actingAs($user);
 
-        $materia = [
-            'nombre'  => 'Ingeniería de software III',
-            'creditos' => 3,
-            'horas' => 4,
-            'horas_registradas' => 0,
-            'color' => '#fabfb7',
-            'horas_dedicar_total' => 144,
-            'horas_dedicar_semana'=> 9,
-            'horas_pendientes' => 1,
-            'horas_total_clase' => 64,
-            'horas_total' => 144,
-            'horas_pendientes_total' => 80,
-            'horas_ejecutadas' => 0,
-            'user_id' => $user->id
-        ];
-
+        $materia = Materia::create(
+            Config("constantes.materia_test")
+        );
+        $materia->user_id = $user->id;
         $response = $this->post('/materias', $materia);
 
         $response->assertStatus(302);
@@ -68,7 +56,7 @@ class MateriaControllerTest extends TestCase
         $this->assertEquals('3', $materia_guardada->creditos);
         $this->assertEquals('4', $materia_guardada->horas);
     }
-
+/*
     public function test_users_can_edit_materias()
     {
         $user = User::create([
@@ -79,21 +67,10 @@ class MateriaControllerTest extends TestCase
 
         $this->actingAs($user);
 
-        $materia_creada = [
-            'nombre'  => 'Ingeniería de software III',
-            'creditos' => 3,
-            'horas' => 4,
-            'horas_registradas' => 0,
-            'color' => '#fabfb7',
-            'horas_dedicar_total' => 144,
-            'horas_dedicar_semana'=> 9,
-            'horas_pendientes' => 1,
-            'horas_total_clase' => 64,
-            'horas_total' => 144,
-            'horas_pendientes_total' => 80,
-            'horas_ejecutadas' => 0,
-            'user_id' => $user->id
-        ];
+        $materia_creada = Materia::create(
+            Config("constantes.materia_test")
+        );
+        $materia_creada->user_id = $user->id;
 
         $materia_editar = [
             'nombre'  => 'Ingeniería de software',
@@ -111,20 +88,18 @@ class MateriaControllerTest extends TestCase
             'user_id' => $user->id
         ];
 
-        $mat = Materia::create($materia_creada);
-        $this->get('materias/edit', ['id' => $mat->id]);
+        $this->get('materias/edit', ['id' => $materia_creada->id]);
 
         $response = $this->post('/materias', $materia_editar, $materia_creada);
 
         $response->assertStatus(302);
 
-        $this->assertEquals('Ingeniería de software', $mat->nombre);
-        $this->assertEquals('2', $mat->creditos);
-        $this->assertEquals('2', $mat->horas);
+        $this->assertEquals('Ingeniería de software', $materia_creada->nombre);
+        $this->assertEquals('2', $materia_creada->creditos);
+        $this->assertEquals('2', $materia_creada->horas);
 
     }
 
-    /*
     public function test_users_can_delete_materias()
     {
         $user = User::create([

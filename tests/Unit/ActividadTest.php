@@ -5,9 +5,11 @@ namespace Tests\Unit;
 use App\Models\Actividad;
 use App\Models\Materia;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ActividadTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic unit test example.
      *
@@ -16,9 +18,10 @@ class ActividadTest extends TestCase
     public function test_a_atividad_belongs_to_materia()
     {
         $actividad = new Actividad();
-        $materia = new Materia();
+        $materia = Materia::create(
+            Config("constantes.materia_test")
+        );
 
-        $materia->id = 1;
         $actividad->materia_id = $materia->id;
 
         $this->assertInstanceOf(Materia::class, $actividad->materia);

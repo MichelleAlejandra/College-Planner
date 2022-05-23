@@ -70,6 +70,8 @@ class MateriaController extends Controller
         $request['horas_pendientes'] = $request['horas_dedicar_semana'];
         //Horas que ya le dedico
         $request['horas_ejecutadas'] = 0;
+        //Horas registradas en el horario
+        $request['horas_registradas'] = 0;
 
         Materia::create($request->all());
 
@@ -143,6 +145,8 @@ class MateriaController extends Controller
         $request['horas_pendientes'] = $request['horas_dedicar_semana'];
         //Horas que ya le dedico
         $request['horas_ejecutadas'] = $totalejecutada;
+        //Horas registradas en el horario
+        $request['horas_registradas'] = 0;
 
         $materia->update($request->all());
 
@@ -158,7 +162,6 @@ class MateriaController extends Controller
      */
     public function destroy($id)
     {
-        dd("Entró a borrar");
         Materia::find($id)->delete();
 
         return redirect()->route('materias.index')
