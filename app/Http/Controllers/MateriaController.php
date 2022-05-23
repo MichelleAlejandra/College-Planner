@@ -18,9 +18,7 @@ class MateriaController extends Controller
     public function index()
     {
         $user = Auth::user();
-        //
         $materias = Materia::where('user_id', $user->id)->paginate();
-
         $listas = Lista::where('user_id', $user->id)->paginate();
 
         return view('materia.index', compact('materias','listas'))
@@ -34,7 +32,6 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        //
         $user = Auth::user();
         $listas = Lista::where('user_id', $user->id)->paginate();
         $materia = new Materia();
@@ -85,7 +82,6 @@ class MateriaController extends Controller
      */
     public function show($id)
     {
-        //
         $user = Auth::user();
         $listas = Lista::where('user_id', $user->id)->paginate();
         $materia = Materia::find($id);
@@ -117,7 +113,6 @@ class MateriaController extends Controller
      */
     public function update(Request $request, Materia $materia)
     {
-        //
         request()->validate(Materia::$rules);
 
         $resultado = Actividad::where('materia_id', $materia->id)->get();
