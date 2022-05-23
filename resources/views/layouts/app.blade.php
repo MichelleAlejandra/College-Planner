@@ -105,20 +105,7 @@
                                     Horario
                                 </a>
 
-                                <!-- <div class="dropdown">
-                                <button class="dropdown-toggle bar" style="width:100%" type="button"
-                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src=" {!! asset('img/lista.png') !!}" class="icon-nav">Listas
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width:100%">
-                                    @foreach ($listas as $lista)
-<li><a class="dropdown-item"
-                                            href="{{ route('tareas.index', $lista->id) }}">{{ $lista->nombre }}</a>
-                                    </li>
-@endforeach
-                                </ul>
 
-                            </div>-->
                             </div>
                         </div>
                     </div>
