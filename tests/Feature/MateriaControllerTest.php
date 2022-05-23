@@ -15,7 +15,7 @@ class MateriaControllerTest extends TestCase
      * @return void
      */
     use RefreshDatabase;
-/*
+
     public function test_materias_screen_can_be_rendered()
     {
         $user = User::create([
@@ -126,6 +126,7 @@ class MateriaControllerTest extends TestCase
 
     }
 
+    /*
     public function test_users_can_delete_materias()
     {
         $user = User::create([
