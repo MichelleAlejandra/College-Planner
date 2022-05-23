@@ -118,8 +118,6 @@ class MateriaControllerTest extends TestCase
 
         $response->assertStatus(302);
 
-        $materia_guardada = Materia::first();
-
         $this->assertEquals('Ingeniería de software', $mat->nombre);
         $this->assertEquals('2', $mat->creditos);
         $this->assertEquals('2', $mat->horas);
