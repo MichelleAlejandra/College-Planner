@@ -22,9 +22,6 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/css/bootstrap-colorpicker.min.css"
         rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
 </head>
 
 <body>
@@ -118,7 +115,6 @@
             </div>
         </div>
     </div>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     @yield('javascript')
 </body>
 
