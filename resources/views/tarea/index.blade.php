@@ -18,7 +18,7 @@
             <div style='text-align:right'>
                 <a href="{{ route('tareas.create', ['id' => $id]) }}" class="btn mb-1 btn-agregar">
                     {{ __('Agregar') }}
-                    <img style="width:18px; margin-left: 2px;" src=" {!! asset('img/anadir.png') !!}" />
+                    <img style="width:18px; margin-left: 2px;" alt="Agregar tarea" src=" {!! asset('img/anadir.png') !!}" />
                 </a>
             </div>
             <div class="col-sm-12">
@@ -50,10 +50,6 @@
 
                                             <td style="text-align:center">
                                                 <form action="{{ route('tareas.destroy', $tarea->id) }}" method="POST">
-                                                   <!-- <a class="btn btn-sm m-2 btn-icon"
-                                                        href="{{ route('tareas.show', $tarea->id) }}"
-                                                        style="background-color: #30C2CC"><img class="img-icon"
-                                                            src=" {!! asset('img/ver.png') !!}" /></a> -->
                                                     <a class="btn btn-sm m-2 btn-icon"
                                                         href="{{ route('tareas.edit', $tarea->id) }}"
                                                         style="background-color: #FF5ADB"><img class="img-icon" alt="Editar tarea"
