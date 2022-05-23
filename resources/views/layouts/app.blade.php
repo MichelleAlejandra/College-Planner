@@ -22,9 +22,6 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.5.3/css/bootstrap-colorpicker.min.css"
         rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
 </head>
 
 <body>
@@ -105,20 +102,7 @@
                                     Horario
                                 </a>
 
-                                <!-- <div class="dropdown">
-                                <button class="dropdown-toggle bar" style="width:100%" type="button"
-                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src=" {!! asset('img/lista.png') !!}" class="icon-nav">Listas
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width:100%">
-                                    @foreach ($listas as $lista)
-<li><a class="dropdown-item"
-                                            href="{{ route('tareas.index', $lista->id) }}">{{ $lista->nombre }}</a>
-                                    </li>
-@endforeach
-                                </ul>
 
-                            </div>-->
                             </div>
                         </div>
                     </div>
@@ -131,7 +115,6 @@
             </div>
         </div>
     </div>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     @yield('javascript')
 </body>
 

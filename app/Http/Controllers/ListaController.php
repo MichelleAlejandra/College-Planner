@@ -19,9 +19,7 @@ class ListaController extends Controller
      */
     public function index()
     {
-
         $user = Auth::user();
-
         $listas = Lista::where('user_id', $user->id)->paginate();
 
         return view('lista.index', compact('listas'))
@@ -36,9 +34,9 @@ class ListaController extends Controller
     public function create()
     {
         $user = Auth::user();
-
         $listas = Lista::where('user_id', $user->id)->paginate();
         $lista = new Lista();
+
         return view('lista.create', compact('lista','listas'));
     }
 
@@ -51,12 +49,9 @@ class ListaController extends Controller
     public function store(Request $request)
     {
         request()->validate(Lista::$rules);
-
         $user = Auth::user();
-
         $request['user_id'] = $user->id;
-
-        $lista = Lista::create($request->all());
+        Lista::create($request->all());
 
         return redirect()->route('listas.index')
             ->with('success', 'Lista creado satisfactoriamente');
@@ -72,7 +67,6 @@ class ListaController extends Controller
     {
         $lista = Lista::find($id);
         $user = Auth::user();
-
         $listas = Lista::where('user_id', $user->id)->paginate();
 
         return view('lista.show', compact('lista','listas'));
@@ -88,7 +82,6 @@ class ListaController extends Controller
     {
         $lista = Lista::find($id);
         $user = Auth::user();
-
         $listas = Lista::where('user_id', $user->id)->paginate();
 
         return view('lista.edit', compact('lista','listas'));
@@ -104,7 +97,6 @@ class ListaController extends Controller
     public function update(Request $request, Lista $lista)
     {
         request()->validate(Lista::$rules);
-
         $lista->update($request->all());
 
         return redirect()->route('listas.index')
@@ -118,7 +110,7 @@ class ListaController extends Controller
      */
     public function destroy($id)
     {
-        $lista = Lista::find($id)->delete();
+        Lista::find($id)->delete();
 
         return redirect()->route('listas.index')
             ->with('success', 'Lista eliminada exitosamente');

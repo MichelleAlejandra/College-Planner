@@ -24,7 +24,7 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'require|unique:users,name ' . $user->name,
+            'name' => 'require|unique:users',
             'email' => 'require',
             'password' => 'require',
         ];

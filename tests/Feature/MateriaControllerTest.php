@@ -15,7 +15,7 @@ class MateriaControllerTest extends TestCase
      * @return void
      */
     use RefreshDatabase;
-/*
+
     public function test_materias_screen_can_be_rendered()
     {
         $user = User::create([
@@ -118,14 +118,13 @@ class MateriaControllerTest extends TestCase
 
         $response->assertStatus(302);
 
-        $materia_guardada = Materia::first();
-
         $this->assertEquals('Ingeniería de software', $mat->nombre);
         $this->assertEquals('2', $mat->creditos);
         $this->assertEquals('2', $mat->horas);
 
     }
 
+    /*
     public function test_users_can_delete_materias()
     {
         $user = User::create([

@@ -107,21 +107,10 @@ class HorarioController extends Controller
         }
         $materia->horas_registradas = $auxHoras;
         $materia->save();
-        $horario = Horario::create($request->all());
+        Horario::create($request->all());
 
         return redirect()->route(Config("constantes.horario_index"))
             ->with('success', 'Horario agregado satisfactoriamente');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Horario  $horario
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Horario $horario)
-    {
-        //
     }
 
     /**
