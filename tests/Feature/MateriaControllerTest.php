@@ -46,7 +46,7 @@ class MateriaControllerTest extends TestCase
             Config("constantes.materia_test")
         );
         $materia->user_id = $user->id;
-        $response = $this->post('/materias', $materia);
+        $response = $this->post('/materias', Config("constantes.materia_test"));
 
         $response->assertStatus(302);
 
