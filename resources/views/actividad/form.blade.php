@@ -4,9 +4,11 @@
         <div class="form-group">
             {{ Form::label('Descripción') }}
             {{ Form::text('descripcion', $actividad->descripcion, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Decripción de la actividad que realizó']) }}
+            {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
             <p style="font-size: 0px"></p>
             {{ Form::label('Horas') }}
             {{ Form::number('horas', $actividad->horas, ['class' => 'form-control' . ($errors->has('creditos') ? ' is-invalid' : ''), 'placeholder' => 'Número de horas dedicadas a la actividad']) }}
+            {!! $errors->first('creditos', '<div class="invalid-feedback">:message</div>') !!}
             <input type="hidden" name="materia_id" value="{{$actividad->materia_id}}">
         </div>
 

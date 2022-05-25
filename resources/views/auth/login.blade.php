@@ -51,7 +51,7 @@
                             class="col-md-4 col-form-label text-md-end">{{ __('Correo electrónico') }} <a style="color:red">*</a></label>
                         <div class="col-md-6">
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>Correo electrónico no válido</strong>

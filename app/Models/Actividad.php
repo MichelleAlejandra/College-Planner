@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Actividad extends Model
 {
     static $rules = [
-        'horas' => 'required',
-        'descripcion' => 'required',
+        'horas' => ['required', 'integer', 'max:100'],
+        'descripcion' => ['required', 'max:250'],
     ];
 
     protected $perPage = 20;

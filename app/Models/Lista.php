@@ -19,7 +19,7 @@ class Lista extends Model
 {
 
     static $rules = [
-        'nombre' => 'required',
+        'nombre' => ['required', 'max:150'],
     ];
 
     protected $perPage = 20;

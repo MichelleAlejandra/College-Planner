@@ -41,13 +41,13 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-dark" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item" style="margin-right:60px">
-                                <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Registrarte') }}</a>
                             </li>
                         @endif
                     @else
@@ -73,7 +73,7 @@
                     @endguest
                 </ul>
             </nav>
-            <div class="d-flex">
+            <div class="d-flex" style="background-color: white">
                 @if (Auth::check())
                     <div id="sidebar" class="position-fixed">
                         <div id="sidebar-accordion" class="accordion" style="margin-top:40%;">
@@ -103,8 +103,6 @@
                                     <img src=" {!! asset('img/calendario.png') !!}" class="icon" alt="Horario">
                                     Horario
                                 </a>
-
-
                             </div>
                         </div>
                     </div>

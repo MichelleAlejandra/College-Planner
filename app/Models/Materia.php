@@ -18,7 +18,7 @@ class Materia extends Model
     protected $fillable = ['nombre', 'creditos', 'horas', 'horas_registradas', 'color','horas_dedicar_total', 'horas_dedicar_semana', 'horas_pendientes', 'horas_total_clase', 'horas_total', 'horas_pendientes_total', 'horas_ejecutadas', 'user_id'];
 
     static $rules = [
-        'nombre' => ['required', 'string', 'max:255'],
+        'nombre' => ['required', 'string', 'max:150'],
         'creditos' => ['required', 'integer', 'max:10'],
         'horas' => ['required', 'integer', 'max:12'],
         'horas_registradas' => ['integer', 'max:horas'],

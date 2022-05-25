@@ -21,7 +21,7 @@ class Tarea extends Model
 
     static $rules = [
         'lista_id' => 'required',
-        'nombre' => 'required',
+        'nombre' => ['required', 'max:200'],
     ];
 
     protected $perPage = 20;
