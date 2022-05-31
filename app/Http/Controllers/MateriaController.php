@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Actividad;
+use App\Models\Horario;
 use App\Models\Materia;
 use App\Models\Lista;
 use Illuminate\Http\Request;
@@ -122,12 +123,21 @@ class MateriaController extends Controller
         //
         request()->validate(Materia::$rules);
 
+        $horarios = Horario::where('materia_id', $materia->id)->get();
+
+        if ($horarios) {
+            foreach ($horarios as $h) {
+                $h->materia_color = $request['color'];
+                $h->materia_nombre = $request['nombre'];
+                $h->save();
+            }
+        }
+
         $resultado = Actividad::where('materia_id', $materia->id)->get();
         $totalejecutada = 0;
         if ($resultado) {
             foreach ($resultado as $value) {
                 $totalejecutada += $value->horas;
-
             }
         }
 

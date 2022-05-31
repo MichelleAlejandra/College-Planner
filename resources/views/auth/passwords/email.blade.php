@@ -20,7 +20,9 @@
                     <div class="card-body" style="">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                               <strong> {{ session('status') }} </strong>
+                                <br/>Si el correo electrónico proporcionado es válido,
+                                 le habrá llegado un enlace para recuperar su contraseña
                             </div>
                         @endif
 
@@ -53,9 +55,11 @@
                         </div>
                     </div>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+    <input type="hidden" value="hola">
     </div>
 @endsection

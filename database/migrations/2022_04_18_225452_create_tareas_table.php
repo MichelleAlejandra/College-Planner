@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tareas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('lista_id')->references('id')->on('listas')->comment('La lista a la que pertenece');
+            $table->foreignId('lista_id')->references('id')->on('listas')->cascadeOnDelete()->comment('La lista a la que pertenece');
             $table->string('nombre');
             $table->integer('user_id');
             $table->timestamps();

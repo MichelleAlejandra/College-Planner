@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('descripcion');
             $table->string('horas');
-            $table->foreignId('materia_id')->references('id')->on('materias')->comment('La materia a la que pertenece');
+            $table->foreignId('materia_id')->references('id')->on('materias')->cascadeOnDelete()->comment('La materia a la que pertenece');
             $table->timestamps();
         });
     }

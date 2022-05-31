@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('horarios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('materia_id')->references('id')->on('materias')->comment('La materia a la que pertenece');
-            $table->string('materia_nombre')->references('nombre')->on('materias')->comment('Nombre de la materia a la que pertenece');
-            $table->string('materia_color')->references('color')->on('materias')->comment('Color de la materia a ls que pertenece');
+            $table->foreignId('materia_id')->references('id')->on('materias')->cascadeOnUpdate()->cascadeOnDelete()->comment('La materia a la que pertenece');
+            $table->string('materia_nombre')->references('nombre')->on('materias')->cascadeOnUpdate()->cascadeOnDelete()->comment('Nombre de la materia a la que pertenece');
+            $table->string('materia_color')->references('color')->on('materias')->cascadeOnUpdate()->cascadeOnDelete()->comment('Color de la materia a ls que pertenece');
             $table->string('dia_semana');
             $table->integer('hora_inicial');
             $table->integer('hora_final');
