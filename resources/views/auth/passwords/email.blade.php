@@ -17,7 +17,7 @@
                         Restablece tu contraseña
                     </h1>
 
-                    <div class="card-body" style="">
+                    <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                <strong> {{ session('status') }} </strong>
