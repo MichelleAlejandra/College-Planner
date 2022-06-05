@@ -56,7 +56,7 @@
                                                             src=" {!! asset('img/editar.png') !!}" /></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038">
+                                                    <button type="submit" dusk="delete-button" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038">
                                                         <img class="img-icon" alt="Eliminar tarea" src=" {!! asset('img/eliminar.png') !!}"/></button>
                                                 </form>
                                             </td>

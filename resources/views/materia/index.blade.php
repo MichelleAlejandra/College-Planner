@@ -60,7 +60,7 @@
                                                             src=" {!! asset('img/actividad.png') !!}" alt="Agregar una actividad a la materia"/></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-icon btn-sm  m-2"
+                                                    <button type="submit" class="btn btn-icon btn-sm  m-2" dusk="delete-button"
                                                         style="background-color: #ff1038"><img class="img-icon"
                                                             src=" {!! asset('img/eliminar.png') !!}" alt="Eliminar materia"/></button>
 

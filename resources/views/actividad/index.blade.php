@@ -51,7 +51,7 @@
                                                     <a class="btn btn-sm m-2 btn-icon" href="{{ route('actividad.edit', $actividad->id) }}" style="background-color: #FF5ADB"><img class="img-icon" src=" {!! asset('img/editar.png') !!}" alt="Editar actividad"/></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038"><img class="img-icon" src=" {!! asset('img/eliminar.png') !!}" alt="Eliminar actividad"/></button>
+                                                    <button dusk="delete-button" type="submit" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038"><img class="img-icon" src=" {!! asset('img/eliminar.png') !!}" alt="Eliminar actividad"/></button>
                                                 </form>
                                             </td>
                                         </tr>

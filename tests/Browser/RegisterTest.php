@@ -8,7 +8,7 @@ use Tests\DuskTestCase;
 
 class RegisterTest extends DuskTestCase
 {
-    //use DatabaseMigrations;
+    use DatabaseMigrations;
      /**
      * My test implementation
      */
@@ -18,12 +18,12 @@ class RegisterTest extends DuskTestCase
             $browser->visit('/login');
             $browser->clickLink('Registrarme');
             $browser->visit('/register');
-            $browser->type('name', 'Fernando');
-            $browser->type('email', 'michelleagh@gmail.com');
+            $browser->type('name', 'Pepito');
+            $browser->type('email', 'pepito@gmail.com');
             $browser->type('password', 'hola123');
             $browser->type('password_confirmation', 'hola123');
             $browser->press('Registrarme');
-            $browser->assertPathIs('/');
+            $browser->assertPathIs('/')->assertSee('Pepito');
         });
     }
 }

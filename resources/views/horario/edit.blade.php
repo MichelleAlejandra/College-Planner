@@ -26,9 +26,10 @@
                         @csrf
                         @method('DELETE')
                         <div class="row mt-4" style="text-align: right">
-                            <button type="submit" class="btn btn-danger  btn-sm"
+                            <button type="submit" class="btn btn-danger  btn-sm" dusk="delete-button"
                                 style="background-color: #ff1038; margin-left:83%; width:15.2%; color:#FFFFFF">
-                                Eliminar</button>
+                                Eliminar
+                            </button>
                         </div>
                     </form>
                 </div>

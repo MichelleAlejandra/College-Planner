@@ -42,13 +42,13 @@
                                                 style="background-color: #30C2CC"><img class="img-icon"
                                                     src=" {!! asset('img/ver.png') !!}" alt="Ver contenido de la lista"/></a>
 
-                                            <a class="btn btn-sm m-2 btn-icon"
+                                            <a class="btn btn-sm m-2 btn-icon" dusk="editar"
                                                 href="{{ route('listas.edit', $lista->id) }}"
                                                 style="background-color: #FF5ADB"><img class="img-icon"
                                                     src=" {!! asset('img/editar.png') !!}" alt="Editar lista"/></a>
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038"><img class="img-icon" src=" {!! asset('img/eliminar.png') !!}" alt="Eliminar lista"/></button>
+                                            <button type="submit" dusk="delete-button" class="btn btn-icon btn-sm  m-2" style="background-color: #ff1038"><img class="img-icon" src=" {!! asset('img/eliminar.png') !!}" alt="Eliminar lista"/></button>
                                         </form>
                                     </td>
                                 </tr>
